@@ -1,8 +1,9 @@
 import React from "react";
 import check from "./img/circle-check-solid.svg";
-import remove from "./img/trash-can-solid.svg"
+import remove from "./img/trash-can-solid.svg";
+import calendar from "./img/calendar-solid.svg";
 
-const Todo = ({ text, todo, todos, setTodos }) => {
+const Todo = ({ text, todo, todos, setTodos, date }) => {
     const deleteHandler = () => {
         setTodos(todos.filter(el => el.id !== todo.id));
     };
@@ -20,6 +21,12 @@ const Todo = ({ text, todo, todos, setTodos }) => {
 
     return (
         <div className="output">
+            <div className="cal-icon">
+                <img alt="" src={calendar}></img>
+            </div>
+            <div className="date-output">
+                <p>{date}</p>
+            </div>
             <div className="event-info">
                 <p className={`todo-item ${todo.completed ? "completed" : ""}`}>{text}</p>
             </div>
