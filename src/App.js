@@ -7,7 +7,7 @@ function App() {
   const [inputText, setInputText] = useState("");
   const [inputDate, setInputDate] = useState("");
   const [todos, setTodos] = useState(() => {
-    const saved = localStorage.getItem("todos");
+    const saved = localStorage.getItem("toDoS");
     const initialValue = JSON.parse(saved);
     return initialValue || [];
   });
@@ -30,11 +30,11 @@ function App() {
   };
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("toDoS", JSON.stringify(todos));
   });
 
   useEffect(() => {
-    let events = JSON.parse(localStorage.getItem("todos"));
+    let events = JSON.parse(localStorage.getItem("toDoS"));
     for (let i = 0; i < events.length; i++) {
       if (events[i].date === today) {
         setCheckDay(true);
